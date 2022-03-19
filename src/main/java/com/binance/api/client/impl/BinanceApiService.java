@@ -152,8 +152,10 @@ public interface BinanceApiService {
                                   @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
-    @POST("/wapi/v3/withdraw.html")
-    Call<WithdrawResult> withdraw(@Query("asset") String asset, @Query("address") String address, @Query("amount") String amount, @Query("name") String name, @Query("addressTag") String addressTag,
+    @POST("/sapi/v1/capital/withdraw/apply")
+    Call<WithdrawResult> withdraw(@Query("coin") String coin, @Query("address") String address,
+                                  @Query("amount") String amount, @Query("name") String name,
+                                  @Query("addressTag") String addressTag,
                                   @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
 
@@ -161,9 +163,10 @@ public interface BinanceApiService {
     @GET("/wapi/v3/depositHistory.html")
     Call<DepositHistory> getDepositHistory(@Query("asset") String asset, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
+    // https://binance-docs.github.io/apidocs/spot/en/#withdraw-history-supporting-network-user_data
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
-    @GET("/wapi/v3/withdrawHistory.html")
-    Call<WithdrawHistory> getWithdrawHistory(@Query("asset") String asset, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
+    @GET("/sapi/v1/capital/withdraw/history")
+    Call<List<Withdraw>> getWithdrawHistory(@Query("coin") String coin, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/wapi/v3/depositAddress.html")

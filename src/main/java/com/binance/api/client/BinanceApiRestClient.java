@@ -291,7 +291,7 @@ public interface BinanceApiRestClient {
    *
    * @return withdraw history, containing a list of withdrawals
    */
-  WithdrawHistory getWithdrawHistory(String asset);
+  List<Withdraw> getWithdrawHistory(String asset);
 
   /**
    * Fetch sub-account transfer history.

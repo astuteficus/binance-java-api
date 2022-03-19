@@ -11,35 +11,9 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class WithdrawResult {
 
     /**
-     * Withdraw message.
-     */
-    private String msg;
-
-    /**
-     * Withdraw success.
-     */
-    private boolean success;
-
-    /**
      * Withdraw id.
      */
     private String id;
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
 
     public String getId() {
         return id;
@@ -52,8 +26,6 @@ public class WithdrawResult {
     @Override
     public String toString() {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .append("msg", msg)
-                .append("success", success)
                 .append("id", id)
                 .toString();
     }
